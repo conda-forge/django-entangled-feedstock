@@ -1,13 +1,13 @@
 {% set name = "django-entangled" %}
-{% set version = "0.5.4" %}
+{% set version = "0.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-entangled-{{ version }}.tar.gz
-  sha256: 6cc787ee8c7bc8ac17abba4d59cded47bdd8da606628a3f6883b244a1f6c8605
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: b521392b655b674fb38c9a93bbbca3ec9fcb6c07871f1a5d7d3b796e97a7e76b
 
 build:
   noarch: python
