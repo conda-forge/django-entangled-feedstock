@@ -1,5 +1,5 @@
 {% set name = "django-entangled" %}
-{% set version = "0.6.2" %}
+{% set version = "0.6.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django_entangled-{{ version }}.tar.gz
-  sha256: 8aa4988950b19f55264edfd20e71e917765d43af8f408d912a9beaf5e2aa345b
+  sha256: 0425c8fdc40391233d58280bb15e463749a9f1164285a1c6c7eacafa6ef23a57
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
