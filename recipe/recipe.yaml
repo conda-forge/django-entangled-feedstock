@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  name: django-entangled
+  version: "0.6.3"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django_entangled-${{ version }}.tar.gz
+  sha256: 0425c8fdc40391233d58280bb15e463749a9f1164285a1c6c7eacafa6ef23a57
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }},<4.0
+    - django >=2.1
+
+tests:
+  - python:
+      imports:
+        - entangled
+      python_version: ${{ python_min }}.*
+      pip_check: true
+
+about:
+  summary: Edit JSON field using Django Model Form
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/jrief/django-entangled
+
+extra:
+  recipe-maintainers:
+    - rxm7706
